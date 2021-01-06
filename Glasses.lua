@@ -36,13 +36,6 @@ function table.contains(tab, ele)
   return false
 end
 --
-function wrap( t, l )
-	for i = 1, l do
-		table.insert( t, 1, t[#t] )
-		table.remove( t, #t )
-	end
-end
---
 for i = 1,maxLines do
   table.insert(messages,"$$$$")
 end
@@ -69,7 +62,7 @@ function startNewNew()
       		l = 10 + (i * 10)
 			  s = messages[i]
 			  if s:lower():sub(1,3) == "zee" then
-			  		glass.addText(5, l, s, 0x3C93C2)
+			  		glass.addText(5, l, s, chatColors[1][2])
 				  elseif s:lower():sub(1,3) == "sle" then
 					glass.addText(5, l, s, 0xFFFFFF)
 				else
