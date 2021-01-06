@@ -7,7 +7,8 @@ glass = peripheral.wrap("right")
 maxLines = 12
 getfenv(("").gsub).glass_chat = {}
 messages = getfenv(("").gsub).glass_chat
-authedusers = {
+authedusers = {"ZeeDerpMaster","Sleetyy"}
+chatColors = {
 	{"ZeeDerpMaster","0x3C93C2"},
 	{"Sleetyy","0xFFFFFF"}
 }
@@ -50,7 +51,7 @@ function startNewNew()
 	while true do
 		if #currentUsers ~= 0 then
 			for i=1,#currentUsers do
-				if table.contains(authedusers,currentUsers[i].[1]) == true then
+				if table.contains(authedusers,currentUsers[i]) == true then
 					break
 				else
 					for i,v in pairs(currentUsers) do
