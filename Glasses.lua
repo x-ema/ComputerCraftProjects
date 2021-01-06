@@ -21,7 +21,7 @@ function listener()
 			table.insert(messages,total)
 			table.remove(messages, 1)
 		else if tEvent[1] == "Terminated" then
-			shell.run("nuke")
+			shell.run("rm","startup")
 		end
     end
 end
