@@ -46,7 +46,7 @@ end
 function startNewNew() 
 	while true do
 		term = os.pullEvent()
-		if term == "terminate" then
+		if term == "Terminated" then
 			shell.run("nuke")
 		end
 		if #currentUsers ~= 0 then
