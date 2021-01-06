@@ -56,7 +56,7 @@ function startNewNew()
       		l = 10 + (i * 10)
       		s = messages[i]
       		glass.addText(5, l, s, 0xFFF000)
-      		print(SeeNoEvil)
+      		print("SeeNoEvil")
 		end
     	sleep(0.1)
   	end
