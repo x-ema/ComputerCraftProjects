@@ -64,11 +64,17 @@ function startNewNew()
 			end
 		end
 		glass.clear()
-		glass.addBox(0,20,325,120,0x1f1f1f,0.5)
+		glass.addBox(0,20,325,120,0x000000,0.5)
         for i = 1,#messages do
       		l = 10 + (i * 10)
-      		s = messages[i]
-      		glass.addText(5, l, s, 0xFFF000)
+			  s = messages[i]
+			  if s:lower():sub(1,3) == "zee" then
+			  		glass.addText(5, l, s, chatColors[1].[2])
+			  	elseif s:lower():sub(1,3) == "sle" then
+					glass.addText(5, l, s, chatColors[2].[2])
+				else
+					glass.addText(5, l, s, 0xFFF000)
+				end
       		print("SeeNoEvil")
 		end
     	sleep(0.1)
