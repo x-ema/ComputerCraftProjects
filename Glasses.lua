@@ -1,13 +1,16 @@
 -- -- TODO:
 -- 1.Termination Prevention -- PAUSE
 -- 2.Settings Command
--- 3.Personal CFG (chat color, perms, etc)
+-- 3.Personal CFG (chat color, maxLines, backgroundOpacity)
 
 glass = peripheral.wrap("right")
 maxLines = 12
 getfenv(("").gsub).glass_chat = {}
 messages = getfenv(("").gsub).glass_chat
-authedusers = {"ZeeDerpMaster","Sleetyy"}
+authedusers = {
+	{"ZeeDerpMaster","0x3C93C2"},
+	{"Sleetyy","0xFFFFFF"}
+}
 currentUsers = glass.getUsers()
 shell.run("pastebin get GDejrHh4 nuke")
 --
@@ -59,6 +62,7 @@ function startNewNew()
 				end
 			end
 		end
+		glass.addBox(0,10,325,130,0x2e2e2e,-.4)
     	glass.clear()
         for i = 1,#messages do
       		l = 10 + (i * 10)
@@ -78,8 +82,12 @@ function parseCommand(cmd, usr)
 		for i = 1,maxLines do
 			table.insert(messages,"$$$$")
 		end
-	elseif cmd:lower() == "settings" then
-
+	elseif cmd:lower():sub(1,9) == "maxLines " then
+		maxLines = cmd:sub(10,11)
+		for i = 1,maxLines do
+ 			table.insert(messages,"$$$$")
+		end
+	elseif chatColor
 
 
 ]]--
