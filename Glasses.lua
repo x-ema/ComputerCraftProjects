@@ -1,5 +1,5 @@
 -- -- TODO:
--- 1.Termination Prevention
+-- 1.Termination Prevention -- PAUSE
 -- 2.Settings Command
 -- 3.Personal CFG (chat color, perms, etc)
 
@@ -19,10 +19,11 @@ function listener()
 			user = tostring(tEvent[3])
 			total = user..': '..mesg
 			table.insert(messages,total)
+			table.remove(messages, 1)
 		end	
 	end
 end
- function table.contains(tab, ele)
+function table.contains(tab, ele)
   for _, value in pairs( tab ) do
     if value == ele then
       return true
@@ -68,5 +69,18 @@ function startNewNew()
     	sleep(0.1)
   	end
 end
+--[[
+function parseCommand(cmd, usr)
+	if not cmd or not usr then
+		return
+	end
+	if cmd:lower() == "clear" then
+		for i = 1,maxLines do
+			table.insert(messages,"$$$$")
+		end
+	elseif cmd:lower() == "settings" then
 
+
+
+]]--
 parallel.waitForAny(listener, startNewNew)
