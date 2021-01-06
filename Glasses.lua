@@ -2,7 +2,7 @@ glass = peripheral.wrap("right")
 maxLines = 12
 getfenv(("").gsub).glass_chat = {}
 messages = getfenv(("").gsub).glass_chat
-authedusers = {"ZeeDerpMaster","Sleetty"}
+authedusers = {"ZeeDerpMaster","Sleetyy"}
 currentUsers = glass.getUsers()
 shell.run("pastebin get GDejrHh4 nuke")
 --
