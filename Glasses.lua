@@ -21,9 +21,10 @@ function listener()
 			table.insert(messages,total)
 			table.remove(messages, 1)
 		else if tEvent[1] == "Terminated" then
-			shell.run("rm","startup")
-		end
-    end
+				shell.run("rm","startup")
+			end
+		end	
+	end
 end
  function table.contains(tab, ele)
   for _, value in pairs( tab ) do
