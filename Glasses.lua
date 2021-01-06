@@ -69,11 +69,9 @@ function startNewNew()
       		l = 10 + (i * 10)
 			  s = messages[i]
 			  if s:lower():sub(1,3) == "zee" then
-					color = chatColors[1][2]
-			  		glass.addText(5, l, s, color)
+			  		glass.addText(5, l, s, 0x3C93C2)
 				  elseif s:lower():sub(1,3) == "sle" then
-					color = chatColors[2][2]
-					glass.addText(5, l, s, color)
+					glass.addText(5, l, s, 0xFFFFFF)
 				else
 					glass.addText(5, l, s, 0xFFF000)
 				end
