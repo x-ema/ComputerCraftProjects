@@ -1,3 +1,8 @@
+-- -- TODO:
+-- 1.Termination Prevention
+-- 2.Settings Command
+-- 3.Personal CFG (chat color, perms, etc)
+
 glass = peripheral.wrap("right")
 maxLines = 12
 getfenv(("").gsub).glass_chat = {}
