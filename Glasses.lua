@@ -50,7 +50,7 @@ function startNewNew()
 	while true do
 		if #currentUsers ~= 0 then
 			for i=1,#currentUsers do
-				if table.contains(authedusers,currentUsers[i]) == true then
+				if table.contains(authedusers,currentUsers[i].[1]) == true then
 					break
 				else
 					for i,v in pairs(currentUsers) do
@@ -62,7 +62,7 @@ function startNewNew()
 				end
 			end
 		end
-		glass.addBox(0,10,325,130,0x2e2e2e,-.4)
+		glass.addBox(0,10,325,130,0x2e2e2e,0.4)
     	glass.clear()
         for i = 1,#messages do
       		l = 10 + (i * 10)
