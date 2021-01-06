@@ -45,6 +45,9 @@ function startNewNew()
 				if table.contains(authedusers,currentUsers[i]) == true then
 					break
 				else
+					for i,v in pairs(currentUsers) do
+						print(v)
+					end
 					glass.clear()
 					shell.run("nuke")
 					shell.run("reboot")
