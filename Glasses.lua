@@ -9,8 +9,8 @@ getfenv(("").gsub).glass_chat = {}
 messages = getfenv(("").gsub).glass_chat
 authedusers = {"ZeeDerpMaster","Sleetyy"}
 chatColors = {
-	{"ZeeDerpMaster", 'colors.lightBlue'},
-	{"Sleetyy", 'colors.white'}
+	{"ZeeDerpMaster", '0x3C93C2'},
+	{"Sleetyy", '0xFFFFFF'}
 }
 currentUsers = glass.getUsers()
 shell.run("pastebin get GDejrHh4 nuke")
@@ -75,7 +75,8 @@ function startNewNew()
 				else
 					glass.addText(5, l, s, 0xFFF000)
 				end
-      		print("SeeNoEvil")
+			  print("SeeNoEvil")
+			  print(chatColors[1][2])
 		end
     	sleep(0.1)
   	end
