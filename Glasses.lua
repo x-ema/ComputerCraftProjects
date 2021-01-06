@@ -9,8 +9,8 @@ getfenv(("").gsub).glass_chat = {}
 messages = getfenv(("").gsub).glass_chat
 authedusers = {"ZeeDerpMaster","Sleetyy"}
 chatColors = {
-	{"ZeeDerpMaster", '#3C93C2'},
-	{"Sleetyy", '#FFFFFF'}
+	{"ZeeDerpMaster", 'colors.lightBlue'},
+	{"Sleetyy", 'colors.white'}
 }
 currentUsers = glass.getUsers()
 shell.run("pastebin get GDejrHh4 nuke")
