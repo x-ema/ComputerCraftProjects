@@ -32,7 +32,6 @@ function wrap( t, l )
 		table.insert( t, 1, t[#t] )
 		table.remove( t, #t )
 	end
-	--table.remove(t,12)
 end
 --
 for i = 1,maxLines do
@@ -64,5 +63,3 @@ function startNewNew()
 end
 
 parallel.waitForAny(listener, startNewNew)
-
-
