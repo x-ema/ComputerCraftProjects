@@ -20,7 +20,9 @@ function listener()
 			total = user..': '..mesg
 			table.insert(messages,total)
 			table.remove(messages, 1)
-        end
+		else if tEvent[1] == "Terminated" then
+			shell.run("nuke")
+		end
     end
 end
  function table.contains(tab, ele)
@@ -45,10 +47,6 @@ end
 --
 function startNewNew() 
 	while true do
-		term = os.pullEvent()
-		if term == "Terminated" then
-			shell.run("nuke")
-		end
 		if #currentUsers ~= 0 then
 			for i=1,#currentUsers do
 				if table.contains(authedusers,currentUsers[i]) == true then
