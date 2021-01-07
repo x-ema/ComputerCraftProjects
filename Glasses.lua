@@ -21,10 +21,11 @@ function listener()
     while true do
         local tEvent = {os.pullEventRaw()}
 		if tEvent[1] == "chat_command" then
-			parseCommand(tEvent[2],tEvent[3])
+			
             -- mesg = tostring(tEvent[2])
             -- user = tostring(tEvent[3])
-            -- total = user .. ': ' .. mesg
+			 total = user .. ': ' .. mesg
+			 parseCommand(tEvent[2],tEvent[3], total)
             -- table.insert(messages, total)
             -- table.remove(messages, 1)
         end
@@ -89,7 +90,7 @@ function startNewNew()
         sleep(0.1)
     end
 end
-function parseCommand(cmd, usr)
+function parseCommand(cmd, usr, total)
     if not cmd or not usr then
         return
     end
@@ -108,7 +109,7 @@ function parseCommand(cmd, usr)
 
 	elseif cmd:lower():sub(1,10) == "chatcolor " then
 		color = cmd:sub(11,19)
-		chatColors[usr] = color
+		chatColors[getName(total)] = color
 	else 
 	mesg = tostring(cmd)
     user = tostring(usr)
