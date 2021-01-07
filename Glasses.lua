@@ -1,7 +1,7 @@
 -- -- TODO:
 -- 1.Termination Prevention -- PAUSE
 -- 2.Settings Command
--- 3.Personal CFG (chat color, maxLines, backgroundOpacity)
+-- 3.Personal CFG (chat color, maxLines, backgroundOpacity) -- QOL -- Much Later
 glass = peripheral.wrap("right")
 maxLines = 7
 getfenv(("").gsub).glass_chat = {}
@@ -20,12 +20,13 @@ shell.run("pastebin get GDejrHh4 nuke")
 function listener()
     while true do
         local tEvent = {os.pullEventRaw()}
-        if tEvent[1] == "chat_command" then
-            mesg = tostring(tEvent[2])
-            user = tostring(tEvent[3])
-            total = user .. ': ' .. mesg
-            table.insert(messages, total)
-            table.remove(messages, 1)
+		if tEvent[1] == "chat_command" then
+			parseCommand(tEvent[2],tEvent[3])
+            -- mesg = tostring(tEvent[2])
+            -- user = tostring(tEvent[3])
+            -- total = user .. ': ' .. mesg
+            -- table.insert(messages, total)
+            -- table.remove(messages, 1)
         end
     end
 end
@@ -86,7 +87,6 @@ function startNewNew()
         sleep(0.1)
     end
 end
---[[
 function parseCommand(cmd, usr)
     if not cmd or not usr then
         return
@@ -95,13 +95,18 @@ function parseCommand(cmd, usr)
         for i = 1,maxLines do
             table.insert(messages,"$$$$")
         end
-    elseif cmd:lower():sub(1,9) == "maxLines " then
+    elseif cmd:lower():sub(1,9) == "maxlines " then
         maxLines = cmd:sub(10,11)
         for i = 1,maxLines do
             table.insert(messages,"$$$$")
         end
-    elseif chatColor
- 
- 
-]] --
+	elseif cmd:lower():sub(1,10) == "chatcolor " then
+		color = cmd:sub(11,17)
+	else 
+	mesg = tostring(cmd)
+    user = tostring(user)
+    total = user .. ': ' .. mesg
+    table.insert(messages, total)
+	table.remove(messages, 1)
+	end
 parallel.waitForAny(listener, startNewNew)
