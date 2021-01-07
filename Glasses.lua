@@ -94,8 +94,8 @@ function startNewNew()
         glass.addBox(0, 20, 325, height, 0x000000, 0.5)
         for i = 1, #messages do
           		pos = 10 + (i * 10)
-			
-            message = messages[i]
+			message = messages[i]
+			color = chatColors[getName(message)]
             print(color)
             glass.addText(5, pos, message, color) -- and here
         end
@@ -103,7 +103,6 @@ function startNewNew()
     end
 end
 function parseCMD(cmd,usr)
-  --local cmd[1] = cmd[1]:lower()
   local cmd_lower = cmd[1]:lower()
   if cmd_lower == 'clear' then
     for i =1,tonumber(maxLines) do
@@ -117,41 +116,39 @@ function parseCMD(cmd,usr)
       table.insert(messages,'$$$$')
     end
   elseif cmd_lower == 'chatcolor' then
-    color = loadstring('return '..cmd[2])()
+    chatColors[user] = loadstring('return '..cmd[2])()
   else
-    --msg = usr..' | '..msg:concat()
-    --print(textutils.serialize(
     local cmd_msg = table.concat(cmd)
     table.insert(messages,usr..' | '..cmd_msg)
     table.remove(messages,1)
   end
 end
-function parseCommand(cmd, usr, total)
-    if not cmd or not usr then
-        return
-    end
-    if cmd:lower() == "clear" then
-		for i = 1,maxLines do
-			table.remove(messages,i)
-            table.insert(messages,"$$$$")
-        end
-	elseif cmd:lower():sub(1,9) == "maxlines " then
-		maxLines = cmd:sub(10,11)
-		for i = 1,maxLines do
-			table.remove(messages,i)
-   table.insert(messages,"$$$$")
-		end
-		sleep(.1)
+-- function parseCommand(cmd, usr, total)
+--     if not cmd or not usr then
+--         return
+--     end
+--     if cmd:lower() == "clear" then
+-- 		for i = 1,maxLines do
+-- 			table.remove(messages,i)
+--             table.insert(messages,"$$$$")
+--         end
+-- 	elseif cmd:lower():sub(1,9) == "maxlines " then
+-- 		maxLines = cmd:sub(10,11)
+-- 		for i = 1,maxLines do
+-- 			table.remove(messages,i)
+--    table.insert(messages,"$$$$")
+-- 		end
+-- 		sleep(.1)
 
-	elseif cmd:lower():sub(1,10) == "chatcolor " then
-		color = cmd:sub(11,19)
-		chatColors[getName(total)] = color --here
-	else 
-	mesg = tostring(cmd)
-    user = tostring(usr)
-    total = user .. ': ' .. mesg
-    table.insert(messages, total)
-	table.remove(messages, 1)
-	end
-end
+-- 	elseif cmd:lower():sub(1,10) == "chatcolor " then
+-- 		color = cmd:sub(11,19)
+-- 		chatColors[getName(total)] = color --here
+-- 	else 
+-- 	mesg = tostring(cmd)
+--     user = tostring(usr)
+--     total = user .. ': ' .. mesg
+--     table.insert(messages, total)
+-- 	table.remove(messages, 1)
+-- 	end
+-- end
 parallel.waitForAny(listener, startNewNew)
