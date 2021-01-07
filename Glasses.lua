@@ -99,11 +99,11 @@ function parseCommand(cmd, usr)
             table.insert(messages,"$$$$")
         end
     elseif cmd:lower():sub(1,9) == "maxlines " then
-        maxLines = cmd:sub(10,11)
 		for i = 1,maxLines do
 			table.remove(messages,i)
             table.insert(messages,"$$$$")
-        end
+		end
+		maxLines = cmd:sub(10,11)
 	elseif cmd:lower():sub(1,10) == "chatcolor " then
 		color = cmd:sub(11,17)
 	else 
