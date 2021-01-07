@@ -63,8 +63,8 @@ for i = 1, maxLines do table.insert(messages, "$$$$") end
 function getName(message)
   local name = nil
   while true do
-    if string.find(message, ":") then
-      message = string.match(message, "(.*):")
+    if string.find(message, "|") then
+      message = string.match(message, "(.*)|")
     else
       name = message
       break
@@ -116,7 +116,7 @@ function parseCMD(cmd,usr)
       table.insert(messages,'$$$$')
     end
   elseif cmd_lower == 'chatcolor' then
-    chatColors[user] = loadstring('return '..cmd[2])()
+    chatColors[usr] = loadstring('return '..cmd[2])()
   else
     local cmd_msg = table.concat(cmd)
     table.insert(messages,usr..' | '..cmd_msg)
