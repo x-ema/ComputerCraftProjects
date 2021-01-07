@@ -31,15 +31,10 @@ function listener()
     while true do
         local tEvent = {os.pullEventRaw()}
       if tEvent[1] == "chat_command" then
-      		cmd = split(tEvent[2])
+    	cmd = split(tEvent[2])
         mesg = tostring(tEvent[2])
         user = tostring(tEvent[3])
-    			 total = user .. ' : ' .. mesg
-        
         parseCMD(cmd,user)
-    			 --parseCommand(tEvent[2],tEvent[3], total)
-            -- table.insert(messages, total)
-            -- table.remove(messages, 1)
         end
     end
 end
@@ -63,8 +58,8 @@ for i = 1, maxLines do table.insert(messages, "$$$$") end
 function getName(message)
   local name = nil
   while true do
-    if string.find(message, "|") then
-      message = string.match(message, "(.*)|")
+    if string.find(message, ":") then
+      message = string.match(message, "(.*):")
     else
       name = message
       break
@@ -93,7 +88,7 @@ function startNewNew()
 		height = (maxLines*10)
         glass.addBox(0, 20, 325, height, 0x000000, 0.5)
         for i = 1, #messages do
-          		pos = 10 + (i * 10)
+          	pos = 10 + (i * 10)
 			message = messages[i]
 			color = chatColors[getName(message)]
             print(color)
@@ -119,7 +114,7 @@ function parseCMD(cmd,usr)
     chatColors[usr] = loadstring('return '..cmd[2])()
   else
     local cmd_msg = table.concat(cmd,' ')
-    table.insert(messages,usr..' : '..cmd_msg)
+    table.insert(messages,usr..': '..cmd_msg)
     table.remove(messages,1)
   end
 end
