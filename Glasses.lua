@@ -76,7 +76,7 @@ function startNewNew()
             end
         end
         glass.clear()
-        glass.addBox(0, 20, 325, 120, 0x000000, 0.5)
+        glass.addBox(0, 20, 325, 70, 0x000000, 0.5)
         for i = 1, #messages do
             pos = 10 + (i * 10)
             message = messages[i]
