@@ -118,8 +118,8 @@ function parseCMD(cmd,usr)
   elseif cmd_lower == 'chatcolor' then
     chatColors[usr] = loadstring('return '..cmd[2])()
   else
-    local cmd_msg = table.concat(cmd)
-    table.insert(messages,usr..' | '..cmd_msg)
+    local cmd_msg = table.concat(cmd,' ')
+    table.insert(messages,usr..' : '..cmd_msg)
     table.remove(messages,1)
   end
 end
