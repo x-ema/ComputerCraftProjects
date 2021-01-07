@@ -92,7 +92,8 @@ function parseCommand(cmd, usr)
         return
     end
     if cmd:lower() == "clear" then
-        for i = 1,maxLines do
+		for i = 1,maxLines do
+			table.remove(messages,i)
             table.insert(messages,"$$$$")
         end
     elseif cmd:lower():sub(1,9) == "maxlines " then
