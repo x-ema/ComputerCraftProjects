@@ -109,4 +109,5 @@ function parseCommand(cmd, usr)
     table.insert(messages, total)
 	table.remove(messages, 1)
 	end
+end
 parallel.waitForAny(listener, startNewNew)
