@@ -117,7 +117,7 @@ function parseCMD(cmd,usr)
       table.insert(messages,'$$$$')
     end
   elseif cmd_lower == 'chatcolor' then
-    color = loadstring('return'..cmd[2])()
+    color = loadstring('return '..cmd[2])()
   else
     --msg = usr..' | '..msg:concat()
     --print(textutils.serialize(
