@@ -108,14 +108,12 @@ function parseCMD(cmd, usr)
             table.insert(messages, "$$$$")
         end
     elseif cmd_lower == "maxlines" then
-        
-        for i = 1, tonumber(maxLines - cmd[2]) do
-            table.remove(messages, i)
-		end
 		for i = 1, tonumber(maxLines) do
-            table.insert(messages, i)
+			table.remove(messages, 1)
 		end
-		maxLines = cmd[2]
+		  for i = 1, tonumber(maxLines - cmd[2]) do
+			table.insert(messages, "$$$$")
+		end
     elseif cmd_lower == "chatcolor" then
         chatColors[usr] = loadstring("return " .. cmd[2])()
     else
