@@ -122,32 +122,4 @@ function parseCMD(cmd, usr)
         table.remove(messages, 1)
     end
 end
--- function parseCommand(cmd, usr, total)
---     if not cmd or not usr then
---         return
---     end
---     if cmd:lower() == "clear" then
--- 		for i = 1,maxLines do
--- 			table.remove(messages,i)
---             table.insert(messages,"$$$$")
---         end
--- 	elseif cmd:lower():sub(1,9) == "maxlines " then
--- 		maxLines = cmd:sub(10,11)
--- 		for i = 1,maxLines do
--- 			table.remove(messages,i)
---    table.insert(messages,"$$$$")
--- 		end
--- 		sleep(.1)
-
--- 	elseif cmd:lower():sub(1,10) == "chatcolor " then
--- 		color = cmd:sub(11,19)
--- 		chatColors[getName(total)] = color --here
--- 	else
--- 	mesg = tostring(cmd)
---     user = tostring(usr)
---     total = user .. ': ' .. mesg
---     table.insert(messages, total)
--- 	table.remove(messages, 1)
--- 	end
--- end
 parallel.waitForAny(listener, startNewNew)
