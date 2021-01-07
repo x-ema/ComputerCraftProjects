@@ -119,14 +119,15 @@ function parseCMD(cmd, usr)
         chatColors[usr] = loadstring("return " .. cmd[2])()
     else
 		local cmd_msg = table.concat(cmd, " ")
-		for i=1,#messages do
 			if glass.getStringWidth(cmd_msg) >= 325 then
-				cutMsg = string.sub(cmd_msg,51,string.len(s))
+				cutMsg = string.sub(cmd_msg,51,string.len(cmd_msg))
 				table.insert(messages, usr .. ": " ..cutMsg)
-			end
+				table.remove(messages, 1)
+				else
+				table.insert(messages, usr .. ": " .. cmd_msg)
+				table.remove(messages, 1)
+			
 		end
-        table.insert(messages, usr .. ": " .. cmd_msg)
-        table.remove(messages, 1)
     end
 end
 --
