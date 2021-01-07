@@ -135,11 +135,10 @@ function onlineList()
 	if #glass.getUsers() > 0 then
 		usrNum = #glass.getUsers()
 		usrNam = glass.getUsers()
-
+		glass.addBox(336,20,50,60,0x000000,0.5)
 		for i=1,usrNum do
-			h = 10 + (10 * tonumber(usrNum))
-			glass.addBox(336,20,50,h,0x000000,0.5)
-			glass.addText(337,h,usrNam[i])
+			h = 10 + (i * 10)
+			glass.addText(337,h,usrNam[i], chatColors[getName(usrNam[i])])
 		end
 	end
 end
