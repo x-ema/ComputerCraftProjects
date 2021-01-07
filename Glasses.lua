@@ -28,7 +28,7 @@ function split(str)
     end
     return words
 end
-
+--
 function listener()
     while true do
         local tEvent = {os.pullEventRaw()}
@@ -40,6 +40,7 @@ function listener()
         end
     end
 end
+--
 function table.contains(tab, ele)
     for _, value in pairs(tab) do
         if value == ele then
@@ -49,20 +50,13 @@ function table.contains(tab, ele)
     return false
 end
 --
-function wrap(t, l)
-    for i = 1, l do
-        table.insert(t, 1, t[#t])
-        table.remove(t, #t)
-    end
-end
---
 for i = 1, maxLines do
     table.insert(messages, "$$$$")
 end
 --
-
 -- this function takes the message in format name: message and pulls the name out
 -- also accounts for any message including the split character ':'
+--
 function getName(message)
     local name = nil
     while true do
@@ -75,7 +69,7 @@ function getName(message)
     end
     return name
 end
-
+--
 function startNewNew()
     while true do
         if #currentUsers ~= 0 then
@@ -105,6 +99,7 @@ function startNewNew()
         sleep(0.1)
     end
 end
+--
 function parseCMD(cmd, usr)
     local cmd_lower = cmd[1]:lower()
     if cmd_lower == "clear" then
@@ -113,11 +108,12 @@ function parseCMD(cmd, usr)
             table.insert(messages, "$$$$")
         end
     elseif cmd_lower == "maxlines" then
-        maxLines = cmd[2]
-        for i = 1, tonumber(cmd[2]) do
+        
+        for i = 1, tonumber(maxLines - cmd[2]) do
             table.remove(messages, i)
             table.insert(messages, "$$$$")
-        end
+		end
+		maxLines = cmd[2]
     elseif cmd_lower == "chatcolor" then
         chatColors[usr] = loadstring("return " .. cmd[2])()
     else
