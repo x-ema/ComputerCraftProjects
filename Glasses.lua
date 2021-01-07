@@ -76,10 +76,12 @@ function startNewNew()
                 end
             end
         end
-        glass.clear()
-        glass.addBox(0, 20, 325, 70, 0x000000, 0.5)
+		glass.clear()
+		height = (maxLines*10)
+        glass.addBox(0, 20, 325, height, 0x000000, 0.5)
         for i = 1, #messages do
-            pos = 10 + (i * 10)
+			pos = 10 + (i * 10)
+			
             message = messages[i]
             color = chatColors[getName(message)]
             glass.addText(5, pos, message, color)
@@ -98,7 +100,8 @@ function parseCommand(cmd, usr)
         end
     elseif cmd:lower():sub(1,9) == "maxlines " then
         maxLines = cmd:sub(10,11)
-        for i = 1,maxLines do
+		for i = 1,maxLines do
+			table.remove(messages,i)
             table.insert(messages,"$$$$")
         end
 	elseif cmd:lower():sub(1,10) == "chatcolor " then
