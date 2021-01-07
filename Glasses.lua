@@ -13,10 +13,6 @@ chatColors["ZeeDerpMaster"] = 0x3C93C2
 chatColors["Sleetyy"] = 0xFFFFFF
 chatColors["mpfthprblmtq"] = 0x800080
 
---local authed['ZeeDerpMaster'].color = 0x3C93C2
---local authed['Sleetyy'].color = 0xFFFFFF
---local authed['mpfthprblmtq'].color = 0x800080
-
 currentUsers = glass.getUsers()
 shell.run("delete nuke")
 shell.run("pastebin get GDejrHh4 nuke")
@@ -85,7 +81,8 @@ function startNewNew()
                     shell.run("reboot")
                 end
             end
-        end
+		end
+		
         glass.clear()
         height = (maxLines * 10)
         glass.addBox(0, 20, 335, height, 0x000000, 0.5)
@@ -94,8 +91,9 @@ function startNewNew()
             message = messages[i]
             color = chatColors[getName(message)]
             print(color)
-            glass.addText(5, pos, message, color) -- and here
-        end
+            glass.addText(5, pos, message, color)
+		end
+		onlineList()
         sleep(0.1)
     end
 end
@@ -133,14 +131,10 @@ function parseCMD(cmd, usr)
 		end
     end
 end
---
-function lineWrap()
-
-
-
-
-
-
-
+function onlineList()
+	if #glass.getUsers() > 0 then
+		h = 10 + (10*#glasss.getUsers())
+		glasses.addBox(336,20,50,h,0x000000,0.5)
+	end
 end
 parallel.waitForAny(listener, startNewNew)
