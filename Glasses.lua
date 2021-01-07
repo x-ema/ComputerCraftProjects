@@ -118,9 +118,25 @@ function parseCMD(cmd, usr)
     elseif cmd_lower == "chatcolor" then
         chatColors[usr] = loadstring("return " .. cmd[2])()
     else
-        local cmd_msg = table.concat(cmd, " ")
+		local cmd_msg = table.concat(cmd, " ")
+		for i=1,#messages do
+			if glass.getStringWidth(cmd_msg) >= 325 then
+				cutMsg = string.sub(cmd_msg,51,string.len(s))
+				table.insert(messages, usr .. ": " ..cutMsg)
+			end
+		end
         table.insert(messages, usr .. ": " .. cmd_msg)
         table.remove(messages, 1)
     end
+end
+--
+function lineWrap()
+
+
+
+
+
+
+
 end
 parallel.waitForAny(listener, startNewNew)
