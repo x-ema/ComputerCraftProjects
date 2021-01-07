@@ -105,7 +105,7 @@ function parseCommand(cmd, usr)
 		color = cmd:sub(11,17)
 	else 
 	mesg = tostring(cmd)
-    user = tostring(user)
+    user = tostring(usr)
     total = user .. ': ' .. mesg
     table.insert(messages, total)
 	table.remove(messages, 1)
