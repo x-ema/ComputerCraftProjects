@@ -88,7 +88,7 @@ function startNewNew()
         end
         glass.clear()
         height = (maxLines * 10)
-        glass.addBox(0, 20, 325, height, 0x000000, 0.5)
+        glass.addBox(0, 20, 335, height, 0x000000, 0.5)
         for i = 1, #messages do
             pos = 10 + (i * 10)
             message = messages[i]
@@ -120,8 +120,8 @@ function parseCMD(cmd, usr)
     else
 		local cmd_msg = table.concat(cmd, " ")
 			if glass.getStringWidth(cmd_msg) >= 325 then
-				cutMsgOne = string.sub(cmd_msg,1,50)
-				cutMsgTwo = string.sub(cmd_msg,52,string.len(cmd_msg))
+				cutMsgOne = string.sub(cmd_msg,1,48)
+				cutMsgTwo = string.sub(cmd_msg,49,string.len(cmd_msg))
 				table.insert(messages, usr .. ": " .. cutMsgOne)
 				table.insert(messages, usr .. ": " ..cutMsgTwo)
 				table.remove(messages, 1)
