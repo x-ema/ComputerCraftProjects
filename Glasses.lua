@@ -133,8 +133,13 @@ function parseCMD(cmd, usr)
 end
 function onlineList()
 	if #glass.getUsers() > 0 then
-		h = 10 + (10*#glasss.getUsers())
-		glasses.addBox(336,20,50,h,0x000000,0.5)
+		usrNum = #glass.getUsers()
+		usrNam = glass.getUsers()
+		h = 10 + (10 * tonumber(usrNum))
+		glass.addBox(336,20,50,h,0x000000,0.5)
+		for i=1,usrNum do
+			addText(337,h,usrNam[i])
+		end
 	end
 end
 parallel.waitForAny(listener, startNewNew)
