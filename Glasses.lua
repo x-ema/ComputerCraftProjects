@@ -120,9 +120,10 @@ function parseCMD(cmd, usr)
     else
 		local cmd_msg = table.concat(cmd, " ")
 			if glass.getStringWidth(cmd_msg) >= 325 then
-				cutMsg = string.sub(cmd_msg,51,string.len(cmd_msg))
-				table.insert(messages, usr .. ": " .. cmd_msg)
-				table.insert(messages, usr .. ": " ..cutMsg)
+				cutMsgOne = string.sub(cmd_msg,1,51)
+				cutMsgTwo = string.sub(cmd_msg,1,string.len(cmd_msg))
+				table.insert(messages, usr .. ": " .. cutMsgOne)
+				table.insert(messages, usr .. ": " ..cutMsgTwo)
 				table.remove(messages, 1)
 				table.remove(messages, 1)
 				else
