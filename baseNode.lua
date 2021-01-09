@@ -12,9 +12,11 @@ if #closePlayers > 0 then
     pV = true
     for i=1,#closePlayers do
         table.insert(masterPlayerTable,closePlayers[i])
-    until #closePlayers == 0 then
-        pV = false
-        getfenv(("").gsub).playerList = {}
+        if #closePlayers == 0 then
+            pV = false
+            getfenv(("").gsub).playerList = {}
+            break
+        end
     end
 end
 sleep(.1)
