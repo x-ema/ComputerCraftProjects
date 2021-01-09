@@ -6,7 +6,8 @@ closePlayers = senor.getPlayerNames()
 masterPlayerTable = getfenv(("").gsub).playerList
 print("What node is this?")
 input = read()
-pV = getfenv(("".gsub).input = false
+pV = getfenv(("").gsub).input = false
+while true do
 if #closePlayers > 0 then
     pV = true
     for i=1,#closePlayers do
@@ -15,6 +16,8 @@ if #closePlayers > 0 then
         pV = false
         getfenv(("").gsub).playerList = {}
     end
+end
+sleep(.1)
 end
 
 
