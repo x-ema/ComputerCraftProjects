@@ -2,7 +2,7 @@
 -- Variable per node
 -- if node == true, start writing, when false, clear. ezpz
 sensor = peripheral.wrap("top")
-closePlayers = senor.getPlayerNames()
+closePlayers = sensor.getPlayerNames()
 masterPlayerTable = getfenv(("").gsub).playerList
 print("What node is this?")
 input = read()

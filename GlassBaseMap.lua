@@ -6,3 +6,13 @@
 -- Not illegal, doesn't keep a log.
 -- Authorized user protection >:D
 -- Wish me luck :)
+getfenv(("").gsub).playerList = {}
+sensorData = {}
+glass = peripheral.wrap("right")
+masterPlayerTable = getfenv(("").gsub).playerList
+nodenum = 1
+repeat 
+    x = getfenv(("").gsub)['node'..nodenum]
+    nodenum = nodenum + 1
+until x = nil
+end
