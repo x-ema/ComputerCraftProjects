@@ -5,3 +5,4 @@
 -- Not illegal, doesnt use sensor.sonicScan()
 -- Not illegal, doesn't keep a log.
 -- Authorized user protection >:D
+-- Wish me luck :)
