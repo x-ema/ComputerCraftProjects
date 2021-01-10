@@ -18,6 +18,11 @@ repeat
             print(v)
         end
     end
+    if nodenum > 32 then 
+        nodenum = 1
+    else
     nodenum = nodenum + 1
+    end
+    print(nodenum)
     sleep(.1)
 until x == nil
