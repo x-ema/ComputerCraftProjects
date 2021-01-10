@@ -12,12 +12,12 @@ glass = peripheral.wrap("right")
 masterPlayerTable = getfenv(("").gsub).playerList
 nodenum = 1
 repeat 
-    x = getfenv(("").gsub)['node'..nodenum]
+    x = getfenv(('node'..nodenum).gsub).prox
     if x == true then
         for i,v in pairs(masterPlayerTable) do 
             print(v)
         end
     end
     nodenum = nodenum + 1
-until x = nil
+until x == nil
 end
