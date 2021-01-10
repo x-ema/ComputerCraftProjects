@@ -19,5 +19,5 @@ repeat
         end
     end
     nodenum = nodenum + 1
+    sleep(.1)
 until x == nil
-end
