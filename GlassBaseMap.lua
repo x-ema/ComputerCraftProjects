@@ -13,6 +13,11 @@ masterPlayerTable = getfenv(("").gsub).playerList
 nodenum = 1
 repeat 
     x = getfenv(("").gsub)['node'..nodenum]
+    if x == true then
+        for i,v in pairs(masterPlayerTable) do 
+            print(v)
+        end
+    end
     nodenum = nodenum + 1
 until x = nil
 end
