@@ -12,12 +12,10 @@ if #closePlayers > 0 then
     getfenv((input).gsub).prox = true
     for i=1,#closePlayers do
         table.insert(masterPlayerTable,closePlayers[i])
-        if #closePlayers == 0 then
-            getfenv((input).gsub).prox = false
-            getfenv(("").gsub).playerList = {}
-            break
-        end
     end
+elseif #closePlayers == 0 then 
+        getfenv((input).gsub).prox = false
+        getfenv(("").gsub).playerList = {}
 end
 sleep(.1)
 end
