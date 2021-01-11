@@ -11,7 +11,7 @@ glass = peripheral.wrap("right")
 for i=1,#getfenv(("").gsub).playerList do 
 table.remove(getfenv(("").gsub).playerList,1)
 end
-getfenv(("").gsub).proxyVar = "while true do if #players > 0 then for i,v in pairs(players) do if players[i] == 'ZeeDerpMaster' or 'Sleetyy' then table.remove(players,i) else table.insert(getfenv(('').gsub).playerList,players[i]..' '..id) print(getfenv(('').gsub).playerList[i]) end end end for i,v in pairs(players) do print(v) end sleep(.1) end"
+getfenv(("").gsub).proxyVar = "id = os.getComputerID() sensor = peripheral.wrap('top') players = sensor.getPlayerNames() while true do if #players > 0 then for i,v in pairs(players) do if players[i] == "ZeeDerpMaster" or "Sleetyy" then table.remove(players,i) else table.insert(getfenv(('').gsub).playerList,players[i]..' '..id) print(getfenv(('').gsub).playerList[i]) end end end for i,v in pairs(players) do print(v) end sleep(.1) end"
 sleep(5)
 while true do
     for i,v in pairs(getfenv(("").gsub).playerList) do 
