@@ -10,10 +10,15 @@ whitelist = {"ZeeDerpMaster","Sleetyy"}
 glass = peripheral.wrap("right")
 nodenum = 1
 repeat 
-    local x = getfenv(('node'..nodenum).gsub).prox
-    if x == true then
+    local first = 'getfenv(("").gsub.'..nodeNum
+    local final = 'return '..first
+    local test = loadstring(final)()
+    if test == true then 
         for i,v in pairs(masterPlayerTable) do 
             print(v)
         end
+    end
+    if nodeNum > 32 then
+        nodenum = 1
     end
 until x == nil

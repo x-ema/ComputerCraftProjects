@@ -7,14 +7,17 @@ closePlayers = sensor.getPlayerNames()
 masterPlayerTable = getfenv(("").gsub).playerList
 print("What node is this?")
 input = read()
-getfenv((input).gsub).prox = false
+function updateVar(nodeNum,bool)
+nodeVar = 'getfenv(("").gsub.'..nodeNum..' = "'..bool..'"'
+loadstring(nodeVar)()
+end
 while true do
 if #closePlayers > 0 then
-    getfenv((input).gsub).prox = true
+    updateVar(input,true)
     for i=1,#closePlayers do
         table.insert(masterPlayerTable,closePlayers[i])
         if #closePlayers == 0 then
-            getfenv((input).gsub).prox = false
+            updateVar(input,false)
             getfenv(("").gsub).playerList = {}
             break
         end
