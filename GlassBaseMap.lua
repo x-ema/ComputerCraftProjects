@@ -44,6 +44,10 @@ while true do
             i = 1
         end
     end
-    nodenum = nodenum + 1
+    if #getfenv(("").gsub).playerList > 10 then
+        for i=1,#getfenv(("").gsub).playerList do 
+            table.remove(getfenv(("").gsub).playerList,1)
+        end
+    end
     sleep(.1)
 end
