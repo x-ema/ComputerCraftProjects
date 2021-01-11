@@ -8,6 +8,7 @@
 -- Wish me luck :)
 whitelist = {"ZeeDerpMaster","Sleetyy"}
 glass = peripheral.wrap("right")
+getfenv(("").gsub).playerList = {}
 --
 for i=1,#getfenv(("").gsub).playerList do 
 table.remove(getfenv(("").gsub).playerList,1)
@@ -27,9 +28,9 @@ sleep(1)
 while true do
     for i,v in pairs(getfenv(("").gsub).playerList) do 
         d = string.find(getfenv(("").gsub).playerList[i],1)
-        print(string.sub(getfenv(("").gsub).playerList[i],1,(d-1))))
+        print(string.sub(getfenv(("").gsub).playerList[i],1,(d-1)))
         if table.contains(whitelist,string.sub(getfenv(("").gsub).playerList[i],1,(d-1))) then
-            table.remove(getfenv(("").gsub).playerList,i)
+            getfenv(("").gsub).playerList[i] = nil
         end
         realID = string.sub(getfenv(("").gsub).playerList[i],d,(d+4))
         print(getfenv(("").gsub).playerList[i].." is at "..realID)
