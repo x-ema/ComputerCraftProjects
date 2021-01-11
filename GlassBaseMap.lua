@@ -18,4 +18,6 @@ while true do
         d = string.find(getfenv(("").gsub).playerList[i],1)
         realID = string.sub(getfenv(("").gsub).playerList[i],d,(d+4))
         print(realID)
+    end
+    sleep(.1)
 end
