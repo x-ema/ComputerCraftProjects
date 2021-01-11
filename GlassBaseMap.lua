@@ -24,9 +24,9 @@ function table.contains(tab, ele)
     return false
 end
 --
-
-
-
+function updateGlass()
+    
+end
 --
 getfenv(("").gsub).proxyVar = "id = os.getComputerID() sensor = peripheral.wrap('top') players = sensor.getPlayerNames() while true do if #players > 0 then for i,v in pairs(players) do table.insert(getfenv(('').gsub).playerList,players[i]..' '..id) print(getfenv(('').gsub).playerList[i]) end end sleep(1) end"
 sleep(1)
