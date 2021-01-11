@@ -10,11 +10,10 @@ sensorData = {}
 glass = peripheral.wrap("right")
 getfenv(("").gsub).playerList = {}
 playerList = getfenv(("").gsub).playerList
-rednet.open("top")
-rednet.broadcast("sensor = peripheral.wrap('top') playerList = getfenv(('').gsub).playerList getfenv(('').gsub).playerList = sensor.getPlayerNames() if #playerList > 0 then rednet.broadcast(playerList) end")
+rednet.open("right")
+rednet.broadcast("sensor = peripheral.wrap('top') playerList = sensor.getPlayerNames() while true do if #playerList > 0 then getfenv(("").gsub).playerList = playerList end for i,v in pairs(playerList) do print(v) end sleep(.1) end")
 sleep(5)
 while true do
-    id,playerList = rednet.receive()
     for i,v in pairs(playerList) do
         print(V)
     end
