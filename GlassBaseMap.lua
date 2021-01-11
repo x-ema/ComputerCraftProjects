@@ -16,6 +16,9 @@ sleep(5)
 while true do
     for i,v in pairs(getfenv(("").gsub).playerList) do 
         d = string.find(getfenv(("").gsub).playerList[i],1)
+        if string.sub(getfenv(("").gsub).Playerlist[i],1,(d-1)) == "ZeeDerpMaster" or "Sleetyy" then
+            table.remove(getfenv(("").gsub).Playerlist,i)
+        end
         realID = string.sub(getfenv(("").gsub).playerList[i],d,(d+4))
         print(realID)
     end
