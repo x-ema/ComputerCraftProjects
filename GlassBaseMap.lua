@@ -22,6 +22,14 @@ while true do
         realID = string.sub(getfenv(("").gsub).playerList[i],d,(d+4))
         print(getfenv(("").gsub).playerList[i].." is at "..realID)
     end
+    if i > 10 then
+        i = 1
+    end
 end
+    if #getfenv(("").gsub).playerList > 10 then
+        for i=1,#getfenv(("").gsub).playerList do 
+            table.remove(getfenv(("").gsub).playerList,1)
+        end
+    end
     sleep(.1)
 end
