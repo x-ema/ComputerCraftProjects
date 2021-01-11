@@ -8,13 +8,14 @@
 -- Wish me luck :)
 sensorData = {}
 glass = peripheral.wrap("right")
-getfenv(("").gsub).playerList = {}
-getfenv(("").gsub).proxyVar = ("id = os.getComputerID() sensor = peripheral.wrap('top') players = sensor.getPlayerNames() while true do if #players > 0 then for i,v in pairs(players) do getfenv(('').gsub).playerList = players[i]..' '..id end for i,v in pairs(players) do print(v) end sleep(.1) end")
+for i=1,#getfenv(("").gsub).playerList do 
+table.remove(getfenv(("").gsub).playerList,1)
+end
+getfenv(("").gsub).proxyVar = "id = os.getComputerID() sensor = peripheral.wrap('top') players = sensor.getPlayerNames() while true do if #players > 0 then for i,v in pairs(players) do table.insert(getfenv(('').gsub).playerList,players[i]..' '..id) print(getfenv(('').gsub).playerList[i]) end end for i,v in pairs(players) do print(v) end sleep(.1) end"
 sleep(5)
 while true do
     for i,v in pairs(getfenv(("").gsub).playerList) do 
         d = string.find(getfenv(("").gsub).playerList[i],1)
-        print(getfenv(("").gsub).playerList[i])
         realID = string.sub(getfenv(("").gsub).playerList[i],d,(d+4))
         print(realID)
 end
