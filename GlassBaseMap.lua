@@ -9,4 +9,12 @@
 sensorData = {}
 glass = peripheral.wrap("right")
 rednet.open("top")
-rednet.broadcast("sensor = peripheral.wrap("top") playerList = sensor.getPlayerNames() if #playerList > 0 then rednet.send(id,playerList) end")
+rednet.broadcast("sensor = peripheral.wrap('top') playerList = sensor.getPlayerNames() if #playerList > 0 then rednet.broadcast(playerList) end")
+sleep(5)
+while true do
+    id,playerList = rednet.receive()
+    for i,v in pairs(playerList) do
+        print(V)
+    end
+    sleep(.1)
+end
