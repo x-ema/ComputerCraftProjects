@@ -11,7 +11,8 @@ glass = peripheral.wrap("right")
 rednet.open("top")
 rednet.broadcast("
     sensor = peripheral.wrap("top")
-    if #sensor.getPlayerNames() > 0
-
-
+    playerList = sensor.getPlayerNames()
+    if #playerList > 0 then
+        rednet.send(id,playerList)
+    end
 ")
