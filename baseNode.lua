@@ -24,10 +24,11 @@ while true do
 if #closePlayers > 0 then
     updateVar(input,"true")
     for i=1,#closePlayers do
-        if table.contains(getfenv(("").gsub).playerList,string.sub(closePlayers[i],1,(tonumber(string.find(closePlayers[i],1)) - 1))) then
+         sent = closePlayers[i]..' '..id
+        if table.contains(getfenv(("").gsub).playerList,string.sub(sent,1,(tonumber(string.find(sent,1)) - 1))) then
             print("dupe")
         elseif closePlayers[i] ~= "ZeeDerpMaster" and closePlayers[i] ~= "Sleetyy" then
-            local sent = closePlayers[i]..' '..id
+            
             table.insert(getfenv(("").gsub).playerList,sent)
         else
             print(closePlayers[i])
