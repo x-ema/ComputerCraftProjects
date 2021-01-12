@@ -25,7 +25,7 @@ if #closePlayers > 0 then
     updateVar(input,"true")
     for i=1,#closePlayers do
          sent = closePlayers[i]..' '..id
-        if table.contains(getfenv(("").gsub).playerList,string.sub(sent,1,(string.find(sent,1) - 1))) then
+        if table.contains(getfenv(("").gsub).playerList,sent) then
             print("dupe")
         elseif closePlayers[i] ~= "ZeeDerpMaster" and closePlayers[i] ~= "Sleetyy" then
             table.insert(getfenv(("").gsub).playerList,sent)
