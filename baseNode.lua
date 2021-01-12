@@ -8,7 +8,7 @@ masterPlayerTable = getfenv(("").gsub).playerList
 print("What node is this?")
 input = read()
 function updateVar(nodeNum,bool)
-nodeVar = 'getfenv(("").gsub.'..nodeNum..' = "'..bool..'"'
+nodeVar = 'getfenv(("").gsub).node'..nodeNum..' = "'..bool..'"'
 loadstring(nodeVar)()
 end
 while true do

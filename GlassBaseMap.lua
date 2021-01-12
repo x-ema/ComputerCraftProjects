@@ -11,7 +11,7 @@ glass = peripheral.wrap("right")
 nodes = {"a","b","c","d","e","f","g","h","i","j","k","l","m","o","p","q","r","s","t","u","v","w","x","y","z"}
 nodeIndex = 1
 repeat 
-    local first = 'getfenv(("").gsub.'..nodes[nodeIndex]
+    local first = 'getfenv(("").gsub.node'..nodes[nodeIndex]
     local final = 'return '..first
     local test = loadstring(final)()
     if test == true then 
