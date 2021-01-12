@@ -13,8 +13,8 @@ loadstring(nodeVar)()
 end
 --
 function table.contains(tab, ele)
-    for _, value in pairs(tab) do
-        if value == ele then
+    for i=1,#tab do
+        if tan[i] == ele then
             return true
         end
     end
@@ -43,7 +43,7 @@ if #closePlayers > 0 then
         getfenv(("").gsub).playerList = {}
     end
 end
-sleep(.5)
+sleep(.1)
 end
 
 
