@@ -26,6 +26,9 @@ if #closePlayers > 0 then
             break
         end
     end
+    if #masterPlayerTable > 10 then
+        getfenv(("").gsub).playerList = {}
+    end
 end
 sleep(.1)
 end

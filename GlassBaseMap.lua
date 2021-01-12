@@ -11,6 +11,7 @@ glass = peripheral.wrap("right")
 nodes = {"a","b","c","d","e","f","g","h","i","j","k","l","m","o","p","q","r","s","t","u","v","w","x","y","z"}
 nodeIndex = 1
 masterPlayerTable = getfenv(("").gsub).playerList
+while true do
 repeat 
     local first = 'getfenv(("").gsub).node'..nodes[nodeIndex]
     local final = 'return '..first
@@ -25,3 +26,5 @@ repeat
         nodeIndex = 1
     end
 until test == nil
+sleep(.5)
+end
