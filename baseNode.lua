@@ -4,7 +4,7 @@
 -- if node == true, start writing, when false, clear. ezpz
 sensor = peripheral.wrap("top")
 closePlayers = sensor.getPlayerNames()
-masterPlayerTable = getfenv(("").gsub).playerList
+
 print("What node is this?")
 input = read()
 function updateVar(nodeNum,bool)
@@ -16,7 +16,7 @@ if #closePlayers > 0 then
     updateVar(input,"true")
     for i=1,#closePlayers do
         if closePlayers[i] ~= "ZeeDerpMaster" and closePlayers[i] ~= "Sleetyy" then
-        table.insert(masterPlayerTable,closePlayers[i])
+        table.insert(getfenv(("").gsub).playerList,closePlayers[i])
         else
             print(closePlayers[i])
         end
@@ -30,7 +30,7 @@ if #closePlayers > 0 then
         getfenv(("").gsub).playerList = {}
     end
 end
-sleep(.1)
+sleep(.5)
 end
 
 
