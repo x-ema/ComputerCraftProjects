@@ -22,7 +22,8 @@ repeat
     print(test)
     if test == "true" then 
         for i,v in pairs(getfenv(("").gsub).playerList) do 
-            print(v)
+            local d = string.find(v,1)
+            glass.addText(1,1,string.sub(v,d,(d-1)))
         end
     end
     nodeIndex = 1 + nodeIndex
