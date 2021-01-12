@@ -21,9 +21,12 @@ while true do
     local test = loadstring(final)()
     print(test)
     if test ~= "false" then 
-        for i,v in pairs(getfenv(("").gsub).playerList) do 
+        for i=1,#getfenv(("").gsub).playerList do
+            local v = getfenv(("").gsub).playerList[i]
             local d = string.find(v,1)
-            glass.addText(1,1,string.sub(v,d,(d-1)))
+            local name = string.sub(v,1,(d-1))
+            local id = string.sub(v,d,(d+4))
+            glass.addText(1,1,name..' is at '..id)
         end
     end
     nodeIndex = 1 + nodeIndex
