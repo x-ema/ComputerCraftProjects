@@ -32,16 +32,15 @@ while true do
             local d = string.find(v,1)
             local name = string.sub(v,1,(d-1))
             local id = string.sub(v,d,(d+4))
-            for i = 1, #glassObjects do
-                pos = 10 + (i * 10)
-                message = glassObjects[i]
-                print(color)
-                glass.addText(5, pos, message)
-            end
-            for i=1,10 do
-                table.remove(messages, 1)
-                table.insert(glassObjects,name..' is at '..id)
-            end
+            table.remove(glassObjects, 1)
+            table.insert(glassObjects,name..' is at '..id)
+        end
+    end
+    glass.clear()
+    for i = 1, #glassObjects do
+        pos = 10 + (i * 10)
+        message = glassObjects[i]
+        glass.addText(5, pos, message)
     end
     nodeIndex = 1 + nodeIndex
     if nodeIndex > 26 then
