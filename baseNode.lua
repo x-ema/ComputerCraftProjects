@@ -14,7 +14,7 @@ end
 --
 function table.contains(tab, ele)
     for i=1,#tab do
-        if tan[i] == ele then
+        if tab[i] == ele then
             return true
         end
     end
