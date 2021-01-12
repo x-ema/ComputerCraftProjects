@@ -11,16 +11,28 @@ function updateVar(nodeNum,bool)
 nodeVar = 'getfenv(("").gsub).node'..nodeNum..' = "'..bool..'"'
 loadstring(nodeVar)()
 end
+--
+function table.contains(tab, ele)
+    for _, value in pairs(tab) do
+        if value == ele then
+            return true
+        end
+    end
+    return false
+end
 while true do
 if #closePlayers > 0 then
     updateVar(input,"true")
     for i=1,#closePlayers do
-        if closePlayers[i] ~= "ZeeDerpMaster" and closePlayers[i] ~= "Sleetyy" then
-            sent = closePlayers[i]..' '..id
-        table.insert(getfenv(("").gsub).playerList,closePlayers[i])
+        if table.contains(getfenv(("").gsub).playerList,closePlayers[i]) then
+            print("dupe")
+        elseif closePlayers[i] ~= "ZeeDerpMaster" and closePlayers[i] ~= "Sleetyy" then
+            local sent = closePlayers[i]..' '..id
+            table.insert(getfenv(("").gsub).playerList,closePlayers[i])
         else
             print(closePlayers[i])
         end
+    end
         if #closePlayers == 0 then
             updateVar(input,"false")
             getfenv(("").gsub).playerList = {}
