@@ -2,6 +2,9 @@
 -- This is the node that will be distributed around the base.
 -- Variable per node
 -- if node == true, start writing, when false, clear. ezpz
+-- IF YOU PLAN ON USING THIS AT YOUR BASE FOR ANY REASON ---
+-- you need to edit line 13, changing 'node' to whatever you changed it to in "GlassMapBase"
+-- you also need to edit any occurance of "getfenv(("").gsub).playerList", changing playerList to something else
 sensor = peripheral.wrap("top")
 closePlayers = sensor.getPlayerNames()
 id = os.getComputerID()
@@ -20,6 +23,7 @@ function table.contains(tab, ele)
     end
     return false
 end
+--
 while true do
 if #closePlayers > 0 then
     updateVar(input,"true")
