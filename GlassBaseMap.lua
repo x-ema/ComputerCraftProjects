@@ -8,12 +8,11 @@
 -- Wish me luck :)
 whitelist = {"ZeeDerpMaster","Sleetyy"}
 glass = peripheral.wrap("right")
-nodes = {"a","b","c","d","e","f","g","h","i","j","k","l","m","o","p","q","r","s","t","u","v","w","x","y","z"}
+nodes = {"a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"}
 nodeIndex = 1
 getfenv(("").gsub).playerList = {}
 masterPlayerTable = getfenv(("").gsub).playerList
-while true do
-repeat 
+repeat
     local first = 'getfenv(("").gsub).node'..nodes[nodeIndex]
     print(nodeIndex)
     print(first)
@@ -21,15 +20,14 @@ repeat
     print(final)
     local test = loadstring(final)()
     print(test)
-    if test == true then 
+    if test == "true" then 
         for i,v in pairs(masterPlayerTable) do 
             print(v)
         end
     end
+    nodeIndex = 1 + nodeIndex
     sleep(1)
     if nodeIndex > 26 then
         nodeIndex = 1
     end
-until test == nil
-sleep(.5)
-end
+until nodeIndex == 27

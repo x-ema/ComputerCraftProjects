@@ -18,7 +18,7 @@ if #closePlayers > 0 then
         if closePlayers[i] ~= "ZeeDerpMaster" and closePlayers[i] ~= "Sleetyy" then
         table.insert(masterPlayerTable,closePlayers[i])
         else
-            print("Lives here")
+            print(closePlayers[i])
         end
         if #closePlayers == 0 then
             updateVar(input,"false")
