@@ -10,6 +10,7 @@ whitelist = {"ZeeDerpMaster","Sleetyy"}
 glass = peripheral.wrap("right")
 nodes = {"a","b","c","d","e","f","g","h","i","j","k","l","m","o","p","q","r","s","t","u","v","w","x","y","z"}
 nodeIndex = 1
+masterPlayerTable = getfenv(("").gsub).playerList
 repeat 
     local first = 'getfenv(("").gsub).node'..nodes[nodeIndex]
     local final = 'return '..first
@@ -19,6 +20,7 @@ repeat
             print(v)
         end
     end
+    sleep(1)
     if nodeIndex > 26 then
         nodeIndex = 1
     end
