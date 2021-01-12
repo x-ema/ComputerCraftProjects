@@ -4,7 +4,7 @@
 -- When someone enters the influence of a node, they are displayed on glasses
 -- IF YOU PLAN ON USING THIS AT YOUR BASE FOR ANY REASON ---
 -- you need to edit lines 11(and any other occurances), changing "playerList" to something else,
--- and line 21, changing 'node' to something else
+-- and line 20, changing 'node' in 'gsub).node' to something else
 glass = peripheral.wrap("right")
 nodes = {"a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"}
 nodeIndex = 1
