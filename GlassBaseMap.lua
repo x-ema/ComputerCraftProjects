@@ -8,9 +8,10 @@
 -- Wish me luck :)
 whitelist = {"ZeeDerpMaster","Sleetyy"}
 glass = peripheral.wrap("right")
-nodenum = 1
+nodes = {"a","b","c","d","e","f","g","h","i","j","k","l","m","o","p","q","r","s","t","u","v","w","x","y","z"}
+nodeIndex = 1
 repeat 
-    local first = 'getfenv(("").gsub.'..nodeNum
+    local first = 'getfenv(("").gsub.'..nodes[nodeIndex]
     local final = 'return '..first
     local test = loadstring(final)()
     if test == true then 
@@ -18,7 +19,7 @@ repeat
             print(v)
         end
     end
-    if nodeNum > 32 then
-        nodenum = 1
+    if nodeIndex > 26 then
+        nodeIndex = 1
     end
 until x == nil

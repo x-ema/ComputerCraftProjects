@@ -13,11 +13,11 @@ loadstring(nodeVar)()
 end
 while true do
 if #closePlayers > 0 then
-    updateVar(input,true)
+    updateVar(input,"true")
     for i=1,#closePlayers do
         table.insert(masterPlayerTable,closePlayers[i])
         if #closePlayers == 0 then
-            updateVar(input,false)
+            updateVar(input,"false")
             getfenv(("").gsub).playerList = {}
             break
         end
