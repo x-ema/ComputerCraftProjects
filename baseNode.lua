@@ -15,7 +15,10 @@ while true do
 if #closePlayers > 0 then
     updateVar(input,"true")
     for i=1,#closePlayers do
+        if closePlayers[i] ~= "ZeeDerpMaster" or "Sleetyy" then
         table.insert(masterPlayerTable,closePlayers[i])
+        else
+            print("Lives here")
         if #closePlayers == 0 then
             updateVar(input,"false")
             getfenv(("").gsub).playerList = {}
