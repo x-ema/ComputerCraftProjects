@@ -11,7 +11,7 @@ glass = peripheral.wrap("right")
 nodes = {"a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"}
 nodeIndex = 1
 getfenv(("").gsub).playerList = {}
-masterPlayerTable = getfenv(("").gsub).playerList
+
 repeat
     local first = 'getfenv(("").gsub).node'..nodes[nodeIndex]
     print(nodeIndex)
@@ -21,7 +21,7 @@ repeat
     local test = loadstring(final)()
     print(test)
     if test == "true" then 
-        for i,v in pairs(masterPlayerTable) do 
+        for i,v in pairs(getfenv(("").gsub).playerList) do 
             print(v)
         end
     end
