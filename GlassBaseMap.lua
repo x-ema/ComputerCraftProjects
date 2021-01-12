@@ -12,7 +12,7 @@ nodes = {"a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r"
 nodeIndex = 1
 getfenv(("").gsub).playerList = {}
 
-repeat
+while true do
     local first = 'getfenv(("").gsub).node'..nodes[nodeIndex]
     print(nodeIndex)
     print(first)
@@ -20,15 +20,15 @@ repeat
     print(final)
     local test = loadstring(final)()
     print(test)
-    if test == "true" then 
+    if test ~= "false" then 
         for i,v in pairs(getfenv(("").gsub).playerList) do 
             local d = string.find(v,1)
             glass.addText(1,1,string.sub(v,d,(d-1)))
         end
     end
     nodeIndex = 1 + nodeIndex
-    sleep(1)
     if nodeIndex > 26 then
         nodeIndex = 1
     end
-until nodeIndex == 27
+    sleep(1)
+end
