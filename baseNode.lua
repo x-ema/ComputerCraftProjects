@@ -32,7 +32,7 @@ if #closePlayers > 0 then
         else
             print(closePlayers[i])
         end
-    end
+
         if #closePlayers == 0 then
             updateVar(input,"false")
             getfenv(("").gsub).playerList = {}
