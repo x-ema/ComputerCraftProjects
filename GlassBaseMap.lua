@@ -11,7 +11,13 @@ glass = peripheral.wrap("right")
 nodes = {"a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"}
 nodeIndex = 1
 getfenv(("").gsub).playerList = {}
-
+glassObjects = {}
+glass.clear()
+---
+for i = 1, 10 do
+    table.insert(glassObjects, "$$$$")
+end
+---
 while true do
     local first = 'getfenv(("").gsub).node'..nodes[nodeIndex]
     print(nodeIndex)
@@ -26,8 +32,16 @@ while true do
             local d = string.find(v,1)
             local name = string.sub(v,1,(d-1))
             local id = string.sub(v,d,(d+4))
-            glass.addText(1,1,name..' is at '..id)
-        end
+            for i = 1, #glassObjects do
+                pos = 10 + (i * 10)
+                message = glassObjects[i]
+                print(color)
+                glass.addText(5, pos, message)
+            end
+            for i=1,10 do
+                table.remove(messages, 1)
+                table.insert(glassObjects,name..' is at '..id)
+            end
     end
     nodeIndex = 1 + nodeIndex
     if nodeIndex > 26 then
