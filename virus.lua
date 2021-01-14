@@ -1,0 +1,4 @@
+-- Inject into startup.
+-- Spread via rednet if possible
+-- infect disks
+-- maybe use _G.fs to offload files?
