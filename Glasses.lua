@@ -11,7 +11,8 @@ authedusers = {"ZeeDerpMaster", "Sleetyy", "mpfthprblmtq"}
 chatColors = {}
 chatColors["ZeeDerpMaster"] = 0x3C93C2
 chatColors["Sleetyy"] = 0xFFFFFF
-chatColors["mpfthprblmtq"] = 0x800080
+chatColors["SoundsOfMadness"] = 0x800080
+chatColors["korvuus"] = 0x11ff00
 
 currentUsers = glass.getUsers()
 shell.run("delete nuke")
@@ -117,7 +118,7 @@ function parseCMD(cmd, usr)
         chatColors[usr] = loadstring("return " .. cmd[2])()
     else
 		local cmd_msg = table.concat(cmd, " ")
-			if glass.getStringWidth(cmd_msg) >= 325 then
+			if glass.getStringWidth(cmd_msg) > 325 then
 				cutMsgOne = string.sub(cmd_msg,1,48)
 				cutMsgTwo = string.sub(cmd_msg,49,string.len(cmd_msg))
 				table.insert(messages, usr .. ": " .. cutMsgOne)
@@ -140,7 +141,7 @@ function onlineList()
 			h = 10 + (i * 10)
 			glass.addText(337,h,usrNam[i], chatColors[getName(usrNam[i])])
 		end
-		glass.clear()
+	
 	end
 end
 parallel.waitForAny(listener, startNewNew)
