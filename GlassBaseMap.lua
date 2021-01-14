@@ -15,26 +15,7 @@ glass.clear()
 for i = 1, 10 do
     table.insert(glassObjects, "$$$$")
 end
-<<<<<<< HEAD
---
-function table.contains(tab, ele)
-    for _, value in pairs(tab) do
-        if value == ele then
-            return true
-        end
-    end
-    return false
-end
---
-function updateGlass()
-    
-end
---
-getfenv(("").gsub).proxyVar = "id = os.getComputerID() sensor = peripheral.wrap('top') players = sensor.getPlayerNames() while true do if #players > 0 then for i,v in pairs(players) do table.insert(getfenv(('').gsub).playerList,players[i]..' '..id) print(getfenv(('').gsub).playerList[i]) end end sleep(1) end"
-sleep(1)
-=======
 ---
->>>>>>> 9af2ba9088f159635788c662a43df4905d729f05
 while true do
     local first = 'getfenv(("").gsub).node'..nodes[nodeIndex]
     print(nodeIndex)
