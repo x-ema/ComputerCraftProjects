@@ -1,8 +1,11 @@
 -- -- TODO:
--- 1.Termination Prevention -- PAUSE
+-- 1.Termination Prevention -- Basically Impossible
 -- 2.Settings Command -- Complete
 -- 3.Personal CFG (chat color, maxLines, backgroundOpacity) -- QOL -- Much Later
+-- Invsee Code stolen from Slit :D
+-- ---
 glass = peripheral.wrap("right")
+sen = peripheral.wrap("top")
 maxLines = 7
 getfenv(("").gsub).glass_chat = {}
 messages = getfenv(("").gsub).glass_chat
@@ -31,7 +34,6 @@ function listener()
         local tEvent = {os.pullEventRaw()}
         if tEvent[1] == "chat_command" then
             cmd = split(tEvent[2])
-            mesg = tostring(tEvent[2])
             user = tostring(tEvent[3])
             parseCMD(cmd, user)
         end
@@ -50,9 +52,6 @@ end
 for i = 1, maxLines do
     table.insert(messages, "$$$$")
 end
---
--- this function takes the message in format name: message and pulls the name out
--- also accounts for any message including the split character ':'
 --
 function getName(message)
     local name = nil
@@ -83,8 +82,8 @@ function startNewNew()
                 end
             end
 		end
-		
         glass.clear()
+        onlineList()
         height = (maxLines * 10)
         glass.addBox(0, 20, 335, height, 0x000000, 0.5)
         for i = 1, #messages do
@@ -94,7 +93,6 @@ function startNewNew()
             print(color)
             glass.addText(5, pos, message, color)
 		end
-		onlineList()
         sleep(0.1)
     end
 end
@@ -116,6 +114,8 @@ function parseCMD(cmd, usr)
 		end
     elseif cmd_lower == "chatcolor" then
         chatColors[usr] = loadstring("return " .. cmd[2])()
+    elseif cmd_lower == "invsee" then
+        sen:invsee(cmd[2])
     else
 		local cmd_msg = table.concat(cmd, " ")
 			if glass.getStringWidth(cmd_msg) > 325 then
@@ -132,11 +132,15 @@ function parseCMD(cmd, usr)
 		end
     end
 end
+--
 function onlineList()
 	if #glass.getUsers() > 0 then
 		usrNum = #glass.getUsers()
 		usrNam = glass.getUsers()
-		glass.addBox(336,20,80,60,0x000000,0.5)
+        glass.addBox(336,20,80,60,0x000000,0.5)
+        if glass.getUsers ~= usrNam then
+            glass.clear()
+        end 
 		for i=1,usrNum do
 			h = 10 + (i * 10)
 			glass.addText(337,h,usrNam[i], chatColors[getName(usrNam[i])])
@@ -144,4 +148,37 @@ function onlineList()
 	
 	end
 end
+--
+function drawItem(x,y,id,dmg)
+    local margin = 20
+    local bg = 0x404040
+    local fg = 0x9e9e9e
+    glass.addBox((x * margin) - 1,(y * margin) - 1,margin,margin,bg,1)
+    glass.addBox((x * margin) - 1,(y * margin) - 1,margin - 2,margin - 2,bg,1)
+    glass.addIcon(x * margin,y * margin,id,dmg)
+end
+--
+function invsee(sen,player)
+    local inventory = sen.getPlayerData(player).inventory
+    if not inventory then error('Player does not exist/is not online') end
+    row = 5
+    column = 1
+    for i = 10,36 do --[[Draw main inv]]--
+      drawItem(row,column,inventory[i].id,inventory[i].dmg)
+      if row == 9 then row = 1 column = column + 1 else row = row + 1 end
+    end
+    row = 8
+    column = 1
+    for i = 1,9 do --[[Draw hot bar]]--
+      drawItem(row,column,inventory[i].id,inventory[i].dmg)
+      row = row + 1
+    end
+    row = 1
+    column = 1
+    for i = 37,40 do --[[Draw armor slots]]--
+      drawItem(row,column,inventory[i].id,inventory[i].dmg)
+      column = column + 1
+    end
+end
+--
 parallel.waitForAny(listener, startNewNew)
