@@ -4,6 +4,7 @@
 -- 2.Settings Command -- Complete
 -- 3.Personal CFG (chat color, maxLines, backgroundOpacity) -- QOL -- Much Later
 glass = peripheral.wrap("right")
+sen = peripheral.wrap("top")
 maxLines = 7
 getfenv(("").gsub).glass_chat = {}
 messages = getfenv(("").gsub).glass_chat
