@@ -83,7 +83,6 @@ function startNewNew()
             end
 		end
         glass.clear()
-        onlineList()
         height = (maxLines * 10)
         glass.addBox(0, 20, 335, height, 0x000000, 0.5)
         for i = 1, #messages do
@@ -92,7 +91,8 @@ function startNewNew()
             color = chatColors[getName(message)]
             print(color)
             glass.addText(5, pos, message, color)
-		end
+        end
+        onlineList()
         sleep(0.1)
     end
 end
@@ -115,7 +115,8 @@ function parseCMD(cmd, usr)
     elseif cmd_lower == "chatcolor" then
         chatColors[usr] = loadstring("return " .. cmd[2])()
     elseif cmd_lower == "invsee" then
-        sen:invsee(cmd[2])
+        invsee(sen,cmd[2])
+        sleep(5)
     else
 		local cmd_msg = table.concat(cmd, " ")
 			if glass.getStringWidth(cmd_msg) > 325 then
