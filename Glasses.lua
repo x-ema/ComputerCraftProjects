@@ -8,7 +8,7 @@ sen = peripheral.wrap("top")
 maxLines = 7
 getfenv(("").gsub).glass_chat = {}
 messages = getfenv(("").gsub).glass_chat
-authedusers = {"ZeeDerpMaster", "Sleetyy", "icedfrappuccino","korvuus","SoundsOfMadness","mpfthprblmtq"}
+authedusers = {"ZeeDerpMaster", "Sleetyy", "icedfrappuccino","korvuus","SoundsofMadness","mpfthprblmtq"}
 currentUsers = glass.getUsers()
 
 chatColors = {}
