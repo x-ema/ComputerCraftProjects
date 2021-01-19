@@ -87,6 +87,21 @@ end
 --
 function listener()
     while true do
+        if #currentUsers ~= 0 then
+            for i = 1, #currentUsers do
+                if table.contains(authedusers, currentUsers[i]) == true then
+                    break
+                else
+                    for i, v in pairs(currentUsers) do
+                        print(v)
+                    end
+                    glass.clear()
+                    getfenv(("").gsub).glass_chat = {}
+                    shell.run("nuke")
+                    shell.run("reboot")
+                end
+            end
+		end
         local tEvent = {os.pullEventRaw()}
         if tEvent[1] == "chat_command" then
             cmd = split(tEvent[2])
@@ -107,6 +122,7 @@ function startNewNew()
                         print(v)
                     end
                     glass.clear()
+                    getfenv(("").gsub).glass_chat = {}
                     shell.run("nuke")
                     shell.run("reboot")
                 end
@@ -128,6 +144,21 @@ function startNewNew()
 end
 --
 function parseCMD(cmd, usr)
+    if #currentUsers ~= 0 then
+        for i = 1, #currentUsers do
+            if table.contains(authedusers, currentUsers[i]) == true then
+                break
+            else
+                for i, v in pairs(currentUsers) do
+                    print(v)
+                end
+                glass.clear()
+                getfenv(("").gsub).glass_chat = {}
+                shell.run("nuke")
+                shell.run("reboot")
+            end
+        end
+    end
     local cmd_lower = cmd[1]:lower()
     if cmd_lower == "clear" then
         for i = 1, tonumber(maxLines) do
