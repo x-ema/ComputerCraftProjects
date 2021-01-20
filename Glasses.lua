@@ -54,10 +54,11 @@ function nuke()
     glass.clear()
     for i,v in pairs(fs.list("/")) do
         if fs.list("/")[i] == "rom" then 
-            print'e'
+            break
         else
         glass.clear()
         fs.delete(v)
+        end
     end
     shell.run("reboot")
 end
