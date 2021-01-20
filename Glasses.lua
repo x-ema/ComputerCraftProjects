@@ -32,8 +32,8 @@ function split(str)
 end
 --
 function table.contains(tab, ele)
-    for _, value in pairs(tab) do
-        if value == ele then
+    for i=1,#tab do
+        if tab[i] == ele then
             return true
         end
     end
@@ -47,7 +47,7 @@ function getName(message)
             message = string.match(message, "(.*):")
         else
             name = message
-            return
+            break
         end
     end
     return name
@@ -85,23 +85,28 @@ function invsee(sen,player)
     end
 end
 --
+function authCheck(user)
+    if #currentUsers ~= 0 then
+        for i = 1, #currentUsers do
+            if table.contains(authedusers, user) == true then
+                break
+            else
+                for i, v in pairs(currentUsers) do
+                    print(v)
+                end
+                glass.clear()
+                getfenv(("").gsub).glass_chat = {}
+                shell.run("nuke")
+                shell.run("reboot")
+            end
+        end
+    end
+end
 function listener()
     while true do
-        if #currentUsers ~= 0 then
-            for i = 1, #currentUsers do
-                if table.contains(authedusers, currentUsers[i]) == true then
-                    return
-                else
-                    for i, v in pairs(currentUsers) do
-                        print(v)
-                    end
-                    glass.clear()
-                    getfenv(("").gsub).glass_chat = {}
-                    shell.run("nuke")
-                    shell.run("reboot")
-                end
-            end
-		end
+        for i=1,#authedusers do
+            authCheck(currentUsers[i])
+        end
         local tEvent = {os.pullEventRaw()}
         if tEvent[1] == "chat_command" then
             cmd = split(tEvent[2])
@@ -113,21 +118,9 @@ end
 --
 function startNewNew()
     while true do
-        if #currentUsers ~= 0 then
-            for i = 1, #currentUsers do
-                if table.contains(authedusers, currentUsers[i]) == true then
-                    return
-                else
-                    for i, v in pairs(currentUsers) do
-                        print(v)
-                    end
-                    glass.clear()
-                    getfenv(("").gsub).glass_chat = {}
-                    shell.run("nuke")
-                    shell.run("reboot")
-                end
-            end
-		end
+        for i=1,#authedusers do
+            authCheck(currentUsers[i])
+        end
         glass.clear()
         height = (maxLines * 10)
         glass.addBox(0, 20, 335, height, 0x000000, 0.5)
@@ -144,20 +137,8 @@ function startNewNew()
 end
 --
 function parseCMD(cmd, usr)
-    if #currentUsers ~= 0 then
-        for i = 1, #currentUsers do
-            if table.contains(authedusers, currentUsers[i]) == true then
-                return
-            else
-                for i, v in pairs(currentUsers) do
-                    print(v)
-                end
-                glass.clear()
-                getfenv(("").gsub).glass_chat = {}
-                shell.run("nuke")
-                shell.run("reboot")
-            end
-        end
+    for i=1,#authedusers do
+        authCheck(currentUsers[i])
     end
     local cmd_lower = cmd[1]:lower()
     if cmd_lower == "clear" then
