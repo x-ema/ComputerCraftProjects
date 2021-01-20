@@ -98,13 +98,13 @@ end
 function authCheck()
     currentUsers = glass.getUsers()
     for i = 1, #currentUsers do
-        if table.contains(authedusers, currentUsers[i]) == true then
-            break
-        else
+        if table.contains(authedusers, currentUsers[i]) == false then
             for i, v in pairs(currentUsers) do
                 print(v)
             end
             nuke()
+        else
+            break
         end
     end
 end
