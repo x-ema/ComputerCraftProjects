@@ -118,19 +118,18 @@ function authCheck()
 end
 function listener()
     while true do
-        authCheck()
         local tEvent = {os.pullEventRaw()}
         if tEvent[1] == "chat_command" then
             cmd = split(tEvent[2])
             user = tostring(tEvent[3])
             parseCMD(cmd, user)
         end
+        authCheck()
     end
 end
 --
 function startNewNew()
     while true do
-        authCheck()
         glass.clear()
         height = (maxLines * 10)
         glass.addBox(0, 20, 335, height, 0x000000, 0.5)
@@ -142,12 +141,12 @@ function startNewNew()
             glass.addText(5, pos, message, color)
         end
         onlineList()
+        authCheck()
         sleep(0.1)
     end
 end
 --
 function parseCMD(cmd, usr)
-    authCheck()
     local cmd_lower = cmd[1]:lower()
     if cmd_lower == "clear" then
         for i = 1, tonumber(maxLines) do
