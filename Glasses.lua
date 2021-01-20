@@ -53,14 +53,6 @@ end
 function nuke()
     getfenv(("").gsub).glass_chat = {}
     glass.clear()
-    for i=1,#fs.list("/") do
-        if fs.list("/")[i] == "rom" then 
-            break
-        else
-        glass.clear()
-        fs.delete(fs.list("/")[i])
-        end
-    end
     shell.run("reboot")
 end
 --
