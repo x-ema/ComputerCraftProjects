@@ -13,6 +13,7 @@ chatColors = {}
 chatColors["ZeeDerpMaster"] = 0x3C93C2
 chatColors["Sleetyy"] = 0xFFFFFF
 chatColors["mpfthprblmtq"] = 0x800080
+chatColors["SoundsOfMadness"] = 0x883388
 
 --
 for i = 1, maxLines do
