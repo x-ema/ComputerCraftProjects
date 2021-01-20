@@ -9,7 +9,6 @@ maxLines = 7
 getfenv(("").gsub).glass_chat = {}
 messages = getfenv(("").gsub).glass_chat
 authedusers = {"ZeeDerpMaster", "Sleetyy", "icedfrappuccino","korvuus","SoundsofMadness","mpfthprblmtq"}
-currentUsers = glass.getUsers()
 
 chatColors = {}
 chatColors["ZeeDerpMaster"] = 0x3C93C2
@@ -86,7 +85,6 @@ function invsee(sen,player)
 end
 --
 function authCheck()
-    if #currentUsers ~= 0 then
         for i = 1, #currentUsers do
             if table.contains(authedusers, currentUsers[i]) == true then
                 break
@@ -100,7 +98,6 @@ function authCheck()
                 shell.run("reboot")
             end
         end
-    end
 end
 function listener()
     while true do
@@ -116,6 +113,7 @@ end
 --
 function startNewNew()
     while true do
+        currentUsers = glass.getUsers()
         authCheck()
         glass.clear()
         height = (maxLines * 10)
