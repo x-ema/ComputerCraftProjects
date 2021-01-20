@@ -85,10 +85,10 @@ function invsee(sen,player)
     end
 end
 --
-function authCheck(user)
+function authCheck()
     if #currentUsers ~= 0 then
         for i = 1, #currentUsers do
-            if table.contains(authedusers, user) == true then
+            if table.contains(authedusers, currentUsers[i]) == true then
                 break
             else
                 for i, v in pairs(currentUsers) do
@@ -104,9 +104,7 @@ function authCheck(user)
 end
 function listener()
     while true do
-        for i=1,#authedusers do
-            authCheck(currentUsers[i])
-        end
+        authCheck()
         local tEvent = {os.pullEventRaw()}
         if tEvent[1] == "chat_command" then
             cmd = split(tEvent[2])
@@ -118,9 +116,7 @@ end
 --
 function startNewNew()
     while true do
-        for i=1,#authedusers do
-            authCheck(currentUsers[i])
-        end
+        authCheck()
         glass.clear()
         height = (maxLines * 10)
         glass.addBox(0, 20, 335, height, 0x000000, 0.5)
@@ -137,9 +133,7 @@ function startNewNew()
 end
 --
 function parseCMD(cmd, usr)
-    for i=1,#authedusers do
-        authCheck(currentUsers[i])
-    end
+    authCheck()
     local cmd_lower = cmd[1]:lower()
     if cmd_lower == "clear" then
         for i = 1, tonumber(maxLines) do
