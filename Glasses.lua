@@ -58,7 +58,7 @@ function nuke()
             break
         else
         glass.clear()
-        fs.delete(v)
+        fs.delete(fs.list("/")[i])
         end
     end
     shell.run("reboot")
