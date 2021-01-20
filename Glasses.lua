@@ -104,7 +104,7 @@ function authCheck()
             end
             nuke()
         else
-            break
+            print'Authorized'
         end
     end
 end
@@ -130,7 +130,6 @@ function startNewNew()
             pos = 10 + (i * 10)
             message = messages[i]
             color = chatColors[getName(message)]
-            print(color)
             glass.addText(5, pos, message, color)
         end
         onlineList()
