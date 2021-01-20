@@ -105,7 +105,7 @@ function authCheck()
             end
             nuke()
         else
-            print'Authorized'
+            print''
         end
     end
 end
@@ -154,7 +154,6 @@ function parseCMD(cmd, usr)
         nuke()
     elseif cmd_lower == "invsee" then
         invsee(sen, cmd[2])
-        sleep(2)
     else
         local cmd_msg = table.concat(cmd, " ")
         if glass.getStringWidth(cmd_msg) > 325 then
