@@ -85,6 +85,7 @@ function invsee(sen,player)
 end
 --
 function authCheck()
+    currentUsers = glass.getUsers()
         for i = 1, #currentUsers do
             if table.contains(authedusers, currentUsers[i]) == true then
                 break
@@ -113,7 +114,6 @@ end
 --
 function startNewNew()
     while true do
-        currentUsers = glass.getUsers()
         authCheck()
         glass.clear()
         height = (maxLines * 10)
