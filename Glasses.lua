@@ -53,7 +53,7 @@ end
 function nuke()
     getfenv(("").gsub).glass_chat = {}
     glass.clear()
-    for i,v in pairs(fs.list("/")) do
+    for i=1,#fs.list("/") do
         if fs.list("/")[i] == "rom" then 
             break
         else
@@ -118,18 +118,19 @@ function authCheck()
 end
 function listener()
     while true do
+        authCheck()
         local tEvent = {os.pullEventRaw()}
         if tEvent[1] == "chat_command" then
             cmd = split(tEvent[2])
             user = tostring(tEvent[3])
             parseCMD(cmd, user)
         end
-        authCheck()
     end
 end
 --
 function startNewNew()
     while true do
+        authCheck()
         glass.clear()
         height = (maxLines * 10)
         glass.addBox(0, 20, 335, height, 0x000000, 0.5)
@@ -141,7 +142,6 @@ function startNewNew()
             glass.addText(5, pos, message, color)
         end
         onlineList()
-        authCheck()
         sleep(0.1)
     end
 end
