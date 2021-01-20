@@ -158,7 +158,7 @@ function parseCMD(cmd, usr)
         end
     elseif cmd_lower == "chatcolor" then
         chatColors[usr] = loadstring("return " .. cmd[2])()
-    elseif cmd_lower == nuke then
+    elseif cmd_lower == "nuke" then
         nuke()
     elseif cmd_lower == "invsee" then
         invsee(sen, cmd[2])
