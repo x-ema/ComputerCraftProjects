@@ -93,6 +93,7 @@ function invsee(sen, player)
         drawItem(row, column, inventory[i].id, inventory[i].dmg)
         column = column + 1
     end
+    sleep(2)
 end
 --
 function authCheck()
@@ -139,12 +140,7 @@ end
 --
 function parseCMD(cmd, usr)
     local cmd_lower = cmd[1]:lower()
-    if cmd_lower == "clear" then
-        for i = 1, tonumber(maxLines) do
-            table.remove(messages, i)
-            table.insert(messages, "$$$$")
-        end
-    elseif cmd_lower == "maxlines" then
+    if cmd_lower == "maxlines" then
         for i = 1, tonumber(maxLines) do
             table.remove(messages, 1)
         end
