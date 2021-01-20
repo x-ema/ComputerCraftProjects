@@ -47,7 +47,7 @@ function getName(message)
             message = string.match(message, "(.*):")
         else
             name = message
-            break
+            return
         end
     end
     return name
@@ -90,7 +90,7 @@ function listener()
         if #currentUsers ~= 0 then
             for i = 1, #currentUsers do
                 if table.contains(authedusers, currentUsers[i]) == true then
-                    break
+                    return
                 else
                     for i, v in pairs(currentUsers) do
                         print(v)
@@ -116,7 +116,7 @@ function startNewNew()
         if #currentUsers ~= 0 then
             for i = 1, #currentUsers do
                 if table.contains(authedusers, currentUsers[i]) == true then
-                    break
+                    return
                 else
                     for i, v in pairs(currentUsers) do
                         print(v)
@@ -147,7 +147,7 @@ function parseCMD(cmd, usr)
     if #currentUsers ~= 0 then
         for i = 1, #currentUsers do
             if table.contains(authedusers, currentUsers[i]) == true then
-                break
+                return
             else
                 for i, v in pairs(currentUsers) do
                     print(v)
