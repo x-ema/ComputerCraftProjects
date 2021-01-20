@@ -53,7 +53,8 @@ function nuke()
     getfenv(("").gsub).glass_chat = {}
     glass.clear()
     for i,v in pairs(fs.list("/")) do
-        fs.delete(V)
+        glass.clear()
+        fs.delete(v)
     end
     shell.run("reboot")
 end
