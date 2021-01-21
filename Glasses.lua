@@ -9,6 +9,7 @@ local peripherals = {
 local chat = {
   sensor = peripherals:mount('openperipheral_sensor'),
   glass = peripherals:mount('openperipheral_glassesbridge'),
+  for _,y in pairs(self.glass.getUsers()) do print(y) end,
   --if not glass or not sensor then error('missing peripheral...') end,
   max_lines = 7,
   max_length = 325,
@@ -29,7 +30,8 @@ local chat = {
   
   clearTable = function (self,tab) tab = {} end,
   cmds = {
-    nuke = function (self,msg,usr) getfenv(("").gsub).glass_chat = {} self.glass.clear() os.reboot() end,
+    --nuke = function (self,msg,usr) getfenv(("").gsub).glass_chat = {} self.glass.clear() os.reboot() end,
+    nuke = function (self,msg,usr) print('nuked') end,
     maxlines = function (self,msg,usr)
       for i = 1,max_lines do self:removeMsg(1) end
       self.max_lines = tonumber(msg[2])
@@ -56,12 +58,12 @@ local chat = {
     else
       msg = usr..' : '..table.concat(msg,' ')
       if self.glass.getStringWidth(table.concat(msg,' ')) > 325 then
-        self:addMsg(table.concat(msg,' '):sub(1,48))
-        self:addMsg(table.concat(msg,' '):sub(49,#msg))
+        self:addMsg(msg:sub(1,48))
+        self:addMsg(msg:sub(49,#msg))
         self:removeMsg(1)
         self:removeMsg(1)
       else
-        self:addMsg(table.concat(msg,' '))
+        self:addMsg(msg)
         self:removeMsg(1)
       end
     end
@@ -74,11 +76,11 @@ local chat = {
     for i = 1, #self.messages do
       self.glass.addText(5, self.margin_top + (i * self.margin_msg),self.messages[i],self.messages[i]:sub(1,self.messages[i]:find(':') - 2).color)
     end
-    if #glass.getUsers() > 0 then
+    if #self.glass.getUsers() > 0 then
       users = self.glass.getUsers()
-      self.glass.addBox(336,20,91,60,0xFFFFFF,0.5)
+      self.glass.addBox(336,20,91,60,0x000000,0.5)
       for i = 1, #users do
-        glass.addText(337,self.margin_top + (i * self.margin_msg),users[i],self.authed[users[i]].color)
+        self.glass.addText(337,self.margin_top + (i * self.margin_msg),users[i],self.authed[users[i]].color)
       end
     end
     sleep(0.01)
