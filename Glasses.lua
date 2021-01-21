@@ -18,6 +18,7 @@ local chat = {
   messages = getfenv(("").gsub).glass_chat,
   authed = {},
   newAuthed = function (self,nam,color)
+    self.authed[nam] = {}
     self.authed[nam].name = nam
     self.authed[nam].color = color
   end,
@@ -26,12 +27,13 @@ local chat = {
   
   removeMsg = function (self,num) table.remove(self.messages,num) end,
   
+  clearTable = function (self,tab) tab = {} end,
   cmds = {
     nuke = function (self,msg,usr) getfenv(("").gsub).glass_chat = {} self.glass.clear() os.reboot() end,
     maxlines = function (self,msg,usr)
-      for i = 1,max_lines do chat:removeMsg(1) end
+      for i = 1,max_lines do self:removeMsg(1) end
       self.max_lines = tonumber(msg[2])
-      for i = 1,max_lines do chat:addMsg('$$$$') end
+      for i = 1,max_lines do self:addMsg('$$$$') end
     end,
     chatcolor = function (self,msg,usr) authed[usr].color = loadstring('return '..msg[2])() end
   },
@@ -46,27 +48,27 @@ local chat = {
   authCheck = function (self) for _,user in pairs(self.glass.getUsers()) do if not self.authed[user] then self.cmds.nuke() end end end,
   
   event_listen = function (self)
-    chat:authCheck()
+    self:authCheck()
     _,msg,usr = os.pullEvent('chat_command')
-    msg = chat:split(msg)
+    msg = self:split(msg)
     if self.cmds[msg[1]:lower()] then
       self.cmds[msg[1]:lower()](msg,usr)
     else
       msg = usr..' : '..table.concat(msg,' ')
       if self.glass.getStringWidth(table.concat(msg,' ')) > 325 then
-        chat:addMsg(table.concat(msg,' '):sub(1,48))
-        chat:addMsg(table.concat(msg,' '):sub(49,#msg))
-        chat:removeMsg(1)
-        chat:removeMsg(1)
+        self:addMsg(table.concat(msg,' '):sub(1,48))
+        self:addMsg(table.concat(msg,' '):sub(49,#msg))
+        self:removeMsg(1)
+        self:removeMsg(1)
       else
-        chat:addMsg(table.concat(msg,' '))
-        chat:removeMsg(1)
+        self:addMsg(table.concat(msg,' '))
+        self:removeMsg(1)
       end
     end
   end,
   
   main = function (self)
-    chat:authCheck()
+    self:authCheck()
     self.glass.clear()
     self.glass.addBox(0,20,335,self.max_lines * self.margin_top,0x000000,0.5)
     for i = 1, #self.messages do
@@ -76,12 +78,12 @@ local chat = {
       users = self.glass.getUsers()
       self.glass.addBox(336,20,91,60,0xFFFFFF,0.5)
       for i = 1, #users do
-        glass.addText(337,self.margin_top + (i,self.margin_msg),users[i],self.authed[users[i]].color)
+        glass.addText(337,self.margin_top + (i * self.margin_msg),users[i],self.authed[users[i]].color)
       end
     end
     sleep(0.01)
   end,
-  start = function (self) parallel.waitForAny(chat:main(),chat:event_listen()) end
+  start = function (self) parallel.waitForAny(self:main(),self:event_listen()) end
 }
   
   
