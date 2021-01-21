@@ -9,8 +9,6 @@ local peripherals = {
 local chat = {
   sensor = peripherals:mount('openperipheral_sensor'),
   glass = peripherals:mount('openperipheral_glassesbridge'),
-  for _,y in pairs(self.glass.getUsers()) do print(y) end,
-  --if not glass or not sensor then error('missing peripheral...') end,
   max_lines = 7,
   max_length = 325,
   margin_top = 10,
@@ -58,7 +56,7 @@ local chat = {
       self.cmds[msg[1]:lower()](msg,usr)
     else
       msg = usr..' : '..table.concat(msg,' ')
-      if self.glass.getStringWidth(table.concat(msg,' ')) > 325 then
+      if self.glass.getStringWidth(msg) > 325 then
         self:addMsg(msg:sub(1,48))
         self:addMsg(msg:sub(49,#msg))
         self:removeMsg(1)
@@ -85,7 +83,6 @@ local chat = {
         self.glass.addText(337,self.margin_top + (i * self.margin_msg),users[i],self.authed[users[i]].color)
       end
     end
-    sleep(0.1)
   end,
   start = function (self) parallel.waitForAny(self:main(),self:event_listen()) end
 }
@@ -97,4 +94,5 @@ chat:newAuthed('icedfrappuccino',0x883388)
 chat:newAuthed('korvuus',0xFFFFFF)
 chat:newAuthed('SoundsOfMadness',0x883388)
 chat:newAuthed('mpfthprblmtq',0x800080)
-while true do chat:start() end
+for i = 1,7 do chat:addMsg('$$$$ : $$$$')
+while true do chat:start() sleep(0.1) end
