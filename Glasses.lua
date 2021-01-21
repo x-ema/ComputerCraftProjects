@@ -33,11 +33,12 @@ local chat = {
     --nuke = function (self,msg,usr) getfenv(("").gsub).glass_chat = {} self.glass.clear() os.reboot() end,
     nuke = function (self,msg,usr) print('nuked') end,
     maxlines = function (self,msg,usr)
-      for i = 1,max_lines do self:removeMsg(1) end
+      for i = 1,self.max_lines do self:removeMsg(1) end
       self.max_lines = tonumber(msg[2])
-      for i = 1,max_lines do self:addMsg('$$$$') end
+      for i = 1,self.max_lines do self:addMsg('$$$$') end
     end,
-    chatcolor = function (self,msg,usr) authed[usr].color = loadstring('return '..msg[2])() end
+    chatcolor = function (self,msg,usr) authed[usr].color = loadstring('return '..msg[2])() end,
+    init = function (self) for i = 1,self.max_lines do self:addMsg('$$$$') end
   },
   
   split = function (self,str)
@@ -72,6 +73,7 @@ local chat = {
   main = function (self)
     self:authCheck()
     self.glass.clear()
+    print('cleared')
     self.glass.addBox(0,20,335,self.max_lines * self.margin_top,0x000000,0.5)
     for i = 1, #self.messages do
       self.glass.addText(5, self.margin_top + (i * self.margin_msg),self.messages[i],self.messages[i]:sub(1,self.messages[i]:find(':') - 2).color)
@@ -83,7 +85,7 @@ local chat = {
         self.glass.addText(337,self.margin_top + (i * self.margin_msg),users[i],self.authed[users[i]].color)
       end
     end
-    sleep(0.01)
+    sleep(0.1)
   end,
   start = function (self) parallel.waitForAny(self:main(),self:event_listen()) end
 }
@@ -95,4 +97,4 @@ chat:newAuthed('icedfrappuccino',0x883388)
 chat:newAuthed('korvuus',0xFFFFFF)
 chat:newAuthed('SoundsOfMadness',0x883388)
 chat:newAuthed('mpfthprblmtq',0x800080)
-chat:start()
+while true do chat:start() end
