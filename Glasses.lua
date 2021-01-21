@@ -1,7 +1,7 @@
 local peripherals = {
   mount = function (self,peripheral_name)
     for _,p in pairs(peripheral.getNames()) do
-      if peripheral.getType(p) == peripheral_name then return peripheral.wrap(p) break else return false break end
+      if peripheral.getType(p) == peripheral_name then return peripheral.wrap(p) else return false end
     end
   end
 }
@@ -9,40 +9,18 @@ local peripherals = {
 local chat = {
   sensor = peripherals:mount('openperipheral_sensor'),
   glass = peripherals:mount('openperipheral_glassesbridge'),
-  if not glass or not sensor then error('missing peripheral...') end
+  --if not glass or not sensor then error('missing peripheral...') end,
   max_lines = 7,
   max_length = 325,
   margin_top = 10,
   margin_msg = 10,
   getfenv(("").gsub).glass_chat = {},
   messages = getfenv(("").gsub).glass_chat,
-  
-  authed = {
-    Sleetyy = {
-      name = 'Sleetyy',
-      color = 0xFFFFFF
-    },
-    ZeeDerpMaster = {
-      name = 'ZeeDerpMaster',
-      color = 0x3C93C2
-    },
-    icedfrappuccino = {
-      name = 'icedfrappuccino',
-      color = 0x883388
-    },
-    korvuus = {
-      name = 'korvuus',
-      color = 0xFFFFFF
-    },
-    SoundsOfMadness = {
-      name = 'SoundsOfMadness',
-      color = 0x883388
-    },
-    mpfthprblmtq = {
-      name = 'mpfthprblmtq',
-      color = 0x800080
-    },
-  },
+  authed = {}
+  newAuthed = function (self,nam,color)
+    self.authed[nam].name = nam
+    self.authed[nam].color = color
+  end,
   
   addMsg = function (self,msg) self.messages[#self.messages + 1] = msg end,
   
@@ -107,5 +85,10 @@ local chat = {
 }
   
   
-  
+chat:newAuthed('Sleetyy',0xFFFFFF)
+chat:newAuthed('ZeeDerpMaster',0x3C93C2)
+chat:newAuthed('icedfrappuccino',0x883388)
+chat:newAuthed('korvuus',0xFFFFFF)
+chat:newAuthed('SoundsOfMadness',0x883388)
+chat:newAuthed('mpfthprblmtq',0x800080)
 chat:start()
